@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Creta Battery | Ιερωνυμάκης Χαράλαμπος</title>
+    <meta
+      name="description"
+      content="Creta Battery - Ιερωνυμάκης Χαράλαμπος στο Ηράκλειο Κρήτης. Μπαταρίες αυτοκινήτου, μοτο, σκαφών, φορτηγών, UPS και παντός τύπου, με άμεση εξυπηρέτηση και δωρεάν έλεγχο."
+    />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-1: #06080c;
+        --bg-2: #11161d;
+        --panel: rgba(12, 16, 22, 0.92);
+        --panel-soft: rgba(255, 255, 255, 0.05);
+        --panel-strong: rgba(255, 255, 255, 0.09);
+        --line: rgba(255, 255, 255, 0.12);
+        --text: #f6f8fb;
+        --muted: rgba(246, 248, 251, 0.72);
+        --red: #d82427;
+        --orange: #f39a2f;
+        --gold: #ffd368;
+        --volt: #d8ff5a;
+        --steel: #9aa6b4;
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.5);
+        --radius: 28px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        font-family: "Manrope", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(216, 36, 39, 0.22), transparent 34%),
+          radial-gradient(circle at top right, rgba(243, 154, 47, 0.18), transparent 28%),
+          radial-gradient(circle at 50% 100%, rgba(216, 255, 90, 0.08), transparent 26%),
+          linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.055;
+        background:
+          repeating-linear-gradient(
+            -58deg,
+            rgba(255, 255, 255, 0.09) 0 2px,
+            transparent 2px 28px
+          );
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), transparent 88%);
+      }
+
+      .page {
+        min-height: 100dvh;
+        display: flex;
+        justify-content: center;
+        padding: 18px 12px 28px;
+        position: relative;
+      }
+
+      .page::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.07;
+        background: url("hero.jpg") center 12% / cover no-repeat;
+        filter: grayscale(0.25) saturate(0.82) contrast(1.08);
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 76%);
+      }
+
+      .card {
+        position: relative;
+        z-index: 1;
+        width: min(560px, 100%);
+        background: linear-gradient(180deg, rgba(10, 13, 18, 0.96), rgba(16, 21, 28, 0.95));
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
+
+      .voltage-bar {
+        height: 9px;
+        background:
+          linear-gradient(90deg, var(--red) 0 26%, var(--orange) 26% 72%, var(--gold) 72% 100%);
+      }
+
+      .inner {
+        padding: 14px;
+      }
+
+      .hero {
+        position: relative;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .hero-media {
+        position: relative;
+        aspect-ratio: 2.2 / 1;
+        background: #17191d;
+      }
+
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        filter: saturate(0.92) contrast(1.06);
+      }
+
+      .hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(6, 8, 12, 0.15), rgba(6, 8, 12, 0.88)),
+          linear-gradient(125deg, rgba(216, 36, 39, 0.22), transparent 40%),
+          linear-gradient(325deg, rgba(243, 154, 47, 0.24), transparent 34%);
+      }
+
+      .hero-body {
+        position: relative;
+        margin-top: -58px;
+        padding: 0 14px 14px;
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 12px;
+      }
+
+      .logo-frame {
+        width: 94px;
+        height: 94px;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        padding: 10px;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+          linear-gradient(145deg, rgba(216, 36, 39, 0.16), rgba(243, 154, 47, 0.08));
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(10px);
+      }
+
+      .logo-frame img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+      }
+
+      .title-wrap {
+        min-width: 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--gold);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      .metric-value {
+        font-family: "Barlow Condensed", sans-serif;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(34px, 9vw, 44px);
+        line-height: 0.96;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .subhead {
+        margin: 5px 0 0;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        line-height: 1.48;
+      }
+
+      .lead {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .badge-row,
+      .chips,
+      .brand-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .badge-row {
+        margin-top: 14px;
+      }
+
+      .badge,
+      .chip,
+      .brand-pill {
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .badge {
+        padding: 8px 11px;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .badge-accent {
+        color: #11161d;
+        background: linear-gradient(135deg, var(--volt), var(--gold));
+        border-color: transparent;
+      }
+
+      .divider {
+        height: 1px;
+        margin: 16px 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+      }
+
+      .section {
+        display: grid;
+        gap: 10px;
+      }
+
+      .section + .section {
+        margin-top: 16px;
+      }
+
+      .section-title {
+        margin: 0 0 2px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .actions,
+      .contact-grid,
+      .mini-grid,
+      .service-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .actions,
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .action,
+      .service-card,
+      .info-box,
+      .mini-card,
+      .review {
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.04));
+      }
+
+      .action {
+        position: relative;
+        display: block;
+        min-height: 88px;
+        padding: 14px;
+        color: var(--text);
+        text-decoration: none;
+        overflow: hidden;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease,
+          background-color 160ms ease;
+      }
+
+      .action::before {
+        content: "";
+        position: absolute;
+        inset: auto auto 0 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--red), var(--orange), var(--gold));
+        opacity: 0.94;
+      }
+
+      .action:hover,
+      .action:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.18);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.05));
+      }
+
+      .action strong {
+        display: block;
+        margin: 0 0 5px;
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .action span {
+        display: block;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .action-primary {
+        background:
+          linear-gradient(180deg, rgba(216, 36, 39, 0.18), rgba(255, 255, 255, 0.05)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      }
+
+      .action-wide {
+        grid-column: 1 / -1;
+      }
+
+      .action-google {
+        background:
+          linear-gradient(180deg, rgba(255, 211, 104, 0.16), rgba(255, 255, 255, 0.05)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      }
+
+      .scroll-hint-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+      }
+
+      .scroll-hint {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        color: rgba(255, 255, 255, 0.92);
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        animation: bounceDown 1.6s ease-in-out infinite;
+      }
+
+      .scroll-hint:hover,
+      .scroll-hint:focus-visible {
+        color: var(--gold);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      .scroll-hint svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .service-card,
+      .mini-card,
+      .info-box,
+      .review {
+        padding: 14px;
+      }
+
+      .service-index {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 36px;
+        padding: 0 10px;
+        margin-bottom: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.09);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--gold);
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .service-card strong,
+      .info-box strong,
+      .review strong {
+        display: block;
+        margin: 0 0 6px;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .service-card p,
+      .info-box p,
+      .review p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .info-links {
+        display: grid;
+        gap: 7px;
+        margin-top: 4px;
+      }
+
+      .info-link {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .info-link:hover,
+      .info-link:focus-visible {
+        color: var(--gold);
+      }
+
+      .chips {
+        margin-top: 2px;
+      }
+
+      .chip {
+        padding: 8px 11px;
+        color: rgba(255, 255, 255, 0.88);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .mini-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .mini-card {
+        text-align: center;
+      }
+
+      .metric-value {
+        margin: 0;
+        color: var(--gold);
+        font-size: clamp(28px, 7vw, 34px);
+        line-height: 1;
+      }
+
+      .metric-label {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .brand-strip {
+        margin-top: 2px;
+      }
+
+      .brand-pill {
+        padding: 8px 11px;
+        color: rgba(255, 255, 255, 0.88);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .review {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .review::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(135deg, rgba(216, 36, 39, 0.12), transparent 40%);
+      }
+
+      .review-score {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .hours-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 7px;
+      }
+
+      .hours-list li {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .hours-list span {
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .footer-note {
+        margin: 16px 0 0;
+        color: rgba(255, 255, 255, 0.58);
+        font-size: 11px;
+        line-height: 1.55;
+        text-align: center;
+      }
+
+      .fade {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: rise 680ms ease forwards;
+        animation-delay: var(--delay, 0ms);
+      }
+
+      @keyframes rise {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounceDown {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(5px);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .actions,
+        .contact-grid,
+        .service-grid,
+        .mini-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-body {
+          margin-top: -48px;
+        }
+
+        .brand-row {
+          align-items: center;
+        }
+
+        .logo-frame {
+          width: 84px;
+          height: 84px;
+          border-radius: 22px;
+        }
+
+        .inner {
+          padding: 12px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .fade {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+
+        .action {
+          transition: none;
+        }
+
+        .scroll-hint {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="card">
+        <div class="voltage-bar"></div>
+
+        <div class="inner">
+          <section class="hero fade" style="--delay: 40ms">
+            <div class="hero-media">
+              <img
+                src="hero.jpg"
+                alt="Creta Battery - μπαταρίες αυτοκινήτου, μοτοσυκλέτας και παντός τύπου"
+              />
+            </div>
+
+            <div class="hero-body">
+              <div class="brand-row">
+                <div class="logo-frame">
+                  <img src="logo.svg" alt="Λογότυπο Creta Battery" />
+                </div>
+
+                <div class="title-wrap">
+                  <p class="eyebrow">Μπαταρίες Ηρακλείου Κρήτης</p>
+                  <h1>Ιερωνυμάκης Χαράλαμπος</h1>
+                  <p class="subhead">
+                    Creta Battery για αυτοκίνητο, μοτο, σκάφος, φορτηγό, UPS και κάθε ανάγκη σε
+                    μπαταρία.
+                  </p>
+                </div>
+              </div>
+
+              <p class="lead">
+                Οικογενειακή επιχείρηση με ρίζες από το 1975 και παρουσία στην Κρήτη από το 1981.
+                Με έμφαση στη σωστή διάγνωση, την άμεση αντικατάσταση και τη μεγάλη ποικιλία
+                επώνυμων μπαταριών, παραμένει σημείο αναφοράς στο Ηράκλειο.
+              </p>
+
+              <div class="badge-row">
+                <div class="badge badge-accent">Δωρεάν έλεγχος μπαταρίας</div>
+                <div class="badge">4,9 / 5 Google</div>
+                <div class="badge">278 αξιολογήσεις</div>
+                <div class="badge">Από το 1981 στην Κρήτη</div>
+              </div>
+            </div>
+          </section>
+
+          <div class="divider"></div>
+
+          <section class="section fade" style="--delay: 120ms" aria-labelledby="actions-title">
+            <h2 class="section-title" id="actions-title">Άμεσες ενέργειες</h2>
+
+            <div class="actions">
+              <a class="action action-primary" href="tel:+302810323981">
+                <strong>Κάλεσέ μας</strong>
+                <span>2810 323981 για έλεγχο, αγορά και άμεση εξυπηρέτηση.</span>
+              </a>
+
+              <a class="action" href="tel:+306977718162">
+                <strong>Κινητό / άμεση βοήθεια</strong>
+                <span>6977 718162 για αντικατάσταση και καθοδήγηση όπου βρίσκεστε.</span>
+              </a>
+
+              <a
+                class="action"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=%CE%9C%CE%AE%CE%BD%CE%B1%20%CE%93%CE%B5%CF%89%CF%81%CE%B3%CE%B9%CE%AC%CE%B4%CE%BF%CF%85%205%2C%20%CE%97%CF%81%CE%AC%CE%BA%CE%BB%CE%B5%CE%B9%CE%BF%2071306&amp;destination_place_id=ChIJLzOPz4NZmhQRFKr8EnLEp6A&amp;travelmode=driving&amp;dir_action=navigate"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <strong>Πήγαινέ με εκεί</strong>
+                <span>Μήνα Γεωργιάδου 5, Ηράκλειο 71306.</span>
+              </a>
+
+              <a class="action" href="contact.vcf" download>
+                <strong>Αποθήκευση επαφής</strong>
+                <span>vCard με τηλέφωνα, email, διεύθυνση και ωράριο.</span>
+              </a>
+
+              <a
+                class="action action-google action-wide"
+                href="https://search.google.com/local/writereview?placeid=ChIJLzOPz4NZmhQRFKr8EnLEp6A"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <strong>Αξιολόγησέ μας στο Google</strong>
+                <span>Άνοιξε κατευθείαν τη φόρμα αξιολόγησης του καταστήματος.</span>
+              </a>
+            </div>
+
+            <div class="scroll-hint-wrap">
+              <a class="scroll-hint" href="#services-title" aria-label="Δες περισσότερα παρακάτω">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </section>
+
+          <section class="section fade" style="--delay: 180ms" aria-labelledby="services-title">
+            <h2 class="section-title" id="services-title">Κύριες υπηρεσίες</h2>
+
+            <div class="service-grid">
+              <article class="service-card">
+                <div class="service-index">01</div>
+                <strong>Άμεση αντικατάσταση</strong>
+                <p>
+                  Για όχημα που έμεινε από μπαταρία, υπάρχει γρήγορη εξυπηρέτηση με τηλεφωνική
+                  επικοινωνία και προγραμματισμό στο σημείο.
+                </p>
+              </article>
+
+              <article class="service-card">
+                <div class="service-index">02</div>
+                <strong>Δωρεάν διάγνωση</strong>
+                <p>
+                  Έλεγχος μπαταρίας, φόρτισης, δυναμό, απωλειών και επαφών με στόχο σωστή διάγνωση
+                  πριν την αλλαγή.
+                </p>
+              </article>
+
+              <article class="service-card">
+                <div class="service-index">03</div>
+                <strong>Ανακύκλωση</strong>
+                <p>
+                  Συλλογή και υπεύθυνη ανακύκλωση παλιών μπαταριών, με έμφαση στην ασφαλή διαχείριση
+                  και την προστασία του περιβάλλοντος.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section fade" style="--delay: 240ms" aria-labelledby="categories-title">
+            <h2 class="section-title" id="categories-title">Τι θα βρεις εδώ</h2>
+
+            <div class="chips" aria-label="Κατηγορίες προϊόντων">
+              <div class="chip">Αυτοκινήτου</div>
+              <div class="chip">Μοτοσυκλέτας</div>
+              <div class="chip">Σκαφών</div>
+              <div class="chip">Φορτηγών</div>
+              <div class="chip">Κλαρκ</div>
+              <div class="chip">UPS</div>
+              <div class="chip">Συναγερμών</div>
+              <div class="chip">Εργαλείων</div>
+              <div class="chip">Υαλοκαθαριστήρες</div>
+              <div class="chip">Ταμειακών μηχανών</div>
+              <div class="chip">Φακών</div>
+              <div class="chip">Ρολογιών</div>
+              <div class="chip">Κινητών</div>
+              <div class="chip">Ακουστικών</div>
+            </div>
+          </section>
+
+          <section class="section fade" style="--delay: 300ms" aria-labelledby="trust-title">
+            <h2 class="section-title" id="trust-title">Γιατί το επιλέγουν</h2>
+
+            <div class="mini-grid">
+              <article class="mini-card">
+                <p class="metric-value">4.9</p>
+                <p class="metric-label">Google rating από 278 κριτικές</p>
+              </article>
+
+              <article class="mini-card">
+                <p class="metric-value">1981</p>
+                <p class="metric-label">Σταθερή παρουσία στην Κρήτη</p>
+              </article>
+
+              <article class="mini-card">
+                <p class="metric-value">2008</p>
+                <p class="metric-label">Συνέχεια από τη νέα γενιά</p>
+              </article>
+
+              <article class="mini-card">
+                <p class="metric-value">2017</p>
+                <p class="metric-label">Αποκλειστική Mercury στην Κρήτη</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section fade" style="--delay: 360ms" aria-labelledby="brands-title">
+            <h2 class="section-title" id="brands-title">Ενδεικτικές συνεργασίες</h2>
+
+            <div class="brand-strip" aria-label="Συνεργαζόμενα brands">
+              <div class="brand-pill">Varta</div>
+              <div class="brand-pill">Energizer</div>
+              <div class="brand-pill">Mercury</div>
+              <div class="brand-pill">Exide</div>
+              <div class="brand-pill">Duracell</div>
+              <div class="brand-pill">GP</div>
+            </div>
+          </section>
+
+          <section class="section fade" style="--delay: 420ms" aria-labelledby="review-title">
+            <h2 class="section-title" id="review-title">Από τις κριτικές</h2>
+
+            <article class="review">
+              <div class="review-score">Google 4,9/5 | 278 κριτικές</div>
+              <strong>Άμεση εξυπηρέτηση, καλές τιμές και σωστή δουλειά.</strong>
+              <p>
+                Οι πελάτες τονίζουν σταθερά την ταχύτητα, την τεχνογνωσία, την έντιμη εξυπηρέτηση
+                και τη βοήθεια ακόμη και σε πιο δύσκολες περιπτώσεις μπαταρίας ή ανταλλακτικού.
+              </p>
+            </article>
+          </section>
+
+          <section class="section fade" style="--delay: 480ms" aria-labelledby="contact-title">
+            <h2 class="section-title" id="contact-title">Επικοινωνία και ωράριο</h2>
+
+            <div class="contact-grid">
+              <article class="info-box">
+                <strong>Στοιχεία καταστήματος</strong>
+                <div class="info-links">
+                  <a
+                    class="info-link"
+                    href="https://www.google.com/maps/dir/?api=1&amp;destination=%CE%9C%CE%AE%CE%BD%CE%B1%20%CE%93%CE%B5%CF%89%CF%81%CE%B3%CE%B9%CE%AC%CE%B4%CE%BF%CF%85%205%2C%20%CE%97%CF%81%CE%AC%CE%BA%CE%BB%CE%B5%CE%B9%CE%BF%2071306&amp;destination_place_id=ChIJLzOPz4NZmhQRFKr8EnLEp6A&amp;travelmode=driving&amp;dir_action=navigate"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Μήνα Γεωργιάδου 5, Ηράκλειο 71306
+                  </a>
+                  <a class="info-link" href="tel:+302810323981">2810 323981</a>
+                  <a class="info-link" href="tel:+302810323362">2810 323362</a>
+                  <a class="info-link" href="tel:+306977718162">6977 718162</a>
+                  <a class="info-link" href="mailto:info@cretabattery.gr">info@cretabattery.gr</a>
+                  <a class="info-link" href="https://www.cretabattery.gr/" target="_blank" rel="noreferrer">
+                    www.cretabattery.gr
+                  </a>
+                </div>
+              </article>
+
+              <article class="info-box">
+                <strong>Ωράριο λειτουργίας</strong>
+                <ul class="hours-list">
+                  <li><span>Δευτέρα - Παρασκευή:</span> 08:00 - 21:00</li>
+                  <li><span>Σάββατο:</span> 08:00 - 15:00</li>
+                  <li><span>Κυριακή:</span> Κλειστά</li>
+                </ul>
+              </article>
+
+              <article class="info-box">
+                <strong>Γρήγορη βοήθεια</strong>
+                <p>
+                  Για έλεγχο, επιλογή σωστής μπαταρίας ή άμεση αντικατάσταση, αρκεί ένα τηλεφώνημα
+                  για να σας καθοδηγήσουν στο κατάλληλο προϊόν ή ραντεβού.
+                </p>
+              </article>
+
+              <article class="info-box">
+                <strong>Σύντομο προφίλ</strong>
+                <p>
+                  Μεγάλη ποικιλία μπαταριών, τεχνογνωσία δεκαετιών και έμφαση σε σωστή διάγνωση,
+                  αξιόπιστα brands και προσωπική εξυπηρέτηση.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <p class="footer-note fade" style="--delay: 540ms">
+            Για σωστή επιλογή μπαταρίας και πιο γρήγορη εξυπηρέτηση, καλέστε πριν περάσετε από το
+            κατάστημα ώστε να σας κατευθύνουν στο κατάλληλο προϊόν.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Creta Battery - Ieronymakis Charalambos
+ORG:Creta Battery
+TITLE:Μπαταρίες παντός τύπου
+TEL;TYPE=WORK,VOICE:+30 2810 323981
+TEL;TYPE=WORK,VOICE:+30 2810 323362
+TEL;TYPE=CELL,VOICE:+30 6977 718162
+EMAIL;TYPE=INTERNET:info@cretabattery.gr
+URL:https://www.cretabattery.gr/
+ADR;TYPE=WORK:;;Μήνα Γεωργιάδου 5;Ηράκλειο;;71306;Ελλάδα
+NOTE:Ωράριο καταστήματος: Δευτέρα-Παρασκευή 08:00-21:00, Σάββατο 08:00-15:00, Κυριακή κλειστά.
+END:VCARD
