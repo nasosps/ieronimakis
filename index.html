@@ -168,11 +168,19 @@
         padding: 10px;
         border-radius: 24px;
         border: 1px solid rgba(255, 255, 255, 0.16);
+        color: inherit;
+        text-decoration: none;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
           linear-gradient(145deg, rgba(216, 36, 39, 0.16), rgba(243, 154, 47, 0.08));
         box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
         backdrop-filter: blur(10px);
+      }
+
+      .logo-frame:hover,
+      .logo-frame:focus-visible {
+        border-color: rgba(255, 255, 255, 0.26);
+        transform: translateY(-1px);
       }
 
       .logo-frame img {
@@ -660,9 +668,15 @@
 
             <div class="hero-body">
               <div class="brand-row">
-                <div class="logo-frame">
+                <a
+                  class="logo-frame"
+                  href="https://www.cretabattery.gr/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Άνοιξε το επίσημο site του Creta Battery"
+                >
                   <img src="logo.svg" alt="Λογότυπο Creta Battery" />
-                </div>
+                </a>
 
                 <div class="title-wrap">
                   <p class="eyebrow">Μπαταρίες Ηρακλείου Κρήτης</p>
