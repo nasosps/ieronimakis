@@ -204,7 +204,7 @@
       h1 {
         margin: 0;
         font-size: clamp(34px, 9vw, 44px);
-        line-height: 0.96;
+        line-height: 1.02;
         letter-spacing: 0.02em;
         text-transform: uppercase;
       }
@@ -601,13 +601,25 @@
         }
 
         .brand-row {
-          align-items: center;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
         }
 
         .logo-frame {
           width: 84px;
           height: 84px;
           border-radius: 22px;
+        }
+
+        .title-wrap {
+          width: 100%;
+        }
+
+        h1 {
+          font-size: clamp(29px, 8.6vw, 36px);
+          line-height: 1.06;
+          text-transform: none;
         }
 
         .inner {
